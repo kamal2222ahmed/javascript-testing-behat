@@ -1,5 +1,15 @@
 <?php
 
+use BrowserStack\Local;
+
+use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\WebDriverBy;
+
+use Behat\Behat\Context\BehatContext,
+  Behat\Behat\Exception\PendingException;
+use Behat\Gherkin\Node\PyStringNode,
+    Behat\Gherkin\Node\TableNode;
+
 use Behat\Behat\Context\Context;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\MinkExtension\Context\RawMinkContext;

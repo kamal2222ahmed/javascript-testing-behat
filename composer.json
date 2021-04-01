@@ -1,8 +1,28 @@
 {
-    "require-dev": {
+    "require": {
+	       "facebook/webdriver": "dev-master",
+         "browserstack/browserstack-local": "dev-master",
+         "symfony/yaml": "*"
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "scripts": {
+        "test": "composer single && composer local && composer parallel",
+        "single": "\"./bin/behat\" --config=config/single.conf.yml",
+        "local": "\"./bin/behat\" --config=config/local.conf.yml",
+        "parallel": [
+          "@putenv CONFIG_FILE=config/parallel.conf.yml",
+          "php lib/parallel.php"
+        ]
+    },
+        "require-dev": {
         "behat/behat": "^3.5",
         "behat/mink-extension": "^2.3",
         "behat/mink-goutte-driver": "^1.2",
         "dmore/behat-chrome-extension": "^1.3"
+    }, 
+    "autoload": {
+        "classmap": ["lib/"]
     }
 }
